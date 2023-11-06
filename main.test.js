@@ -48,5 +48,23 @@ it("it should provide correct sum if an array numeric string is provided", () =>
   // Assertion
   expect(result).toBe(expertedResult);
 
+});
+
+it("it should throw an error if no argument is passed", () => {
+
+  const resultFn = () => {
+    add();
+  };
+  expect(resultFn).toThrow();
+
+});
+
+it("it should throw an error if multiple argument is passed", () => {
+
+  const resultFn = () => {
+    add(1, 2, 3);
+  };
+  expect(resultFn).toThrow(/is not iterable/i);
+
 })
 
