@@ -1,0 +1,9 @@
+{
+  "name": "get-started-unit-and-integration-tests",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^0.34.6"
+  }
+}
