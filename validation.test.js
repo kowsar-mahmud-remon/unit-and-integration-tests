@@ -1,5 +1,5 @@
 import { expect, it } from "vitest";
-import { validateEmail } from "./validation";
+import { validateArrayNotEmpty, validateEmail } from "./validation";
 
 it("should validate a correct email address", () => {
   const email = "example@gmail.com";
@@ -28,4 +28,29 @@ it("throws an error for a null email address", () => {
 
 it("throws an error for a undefined email address", () => {
   expect(() => validateEmail(undefined)).toThrow("Invalid email address");
+});
+
+
+// test Array 
+it("should validate a non-empty array", () => {
+  const array = [2, 5];
+  const resultFn = () => validateArrayNotEmpty(array);
+
+  expect(resultFn).not.toThrow();
+});
+
+it("throws an error for an empty array", () => {
+  expect(() => validateArrayNotEmpty([])).toThrow("Array can not be empty");
+});
+
+it("throws an error for non-array input", () => {
+  expect(() => validateArrayNotEmpty("not an array")).toThrow("Array can not be empty");
+});
+
+it("throws an error for null input", () => {
+  expect(() => validateArrayNotEmpty(null)).toThrow("Array can not be empty");
+});
+
+it("throws an error for undefined input", () => {
+  expect(() => validateArrayNotEmpty(undefined)).toThrow("Array can not be empty");
 });
