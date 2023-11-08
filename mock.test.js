@@ -12,3 +12,19 @@ it("should store the token to the file", () => {
 
   expect(fs.writeFile).toHaveBeenCalled();
 });
+
+
+// 
+
+vi.mock("path");
+
+it("should store the token to the file and check file name", () => {
+  const data = "dummy token";
+  const fileName = "token.txt";
+
+  saveTokenToFile(data, fileName);
+
+  expect(fs.writeFile).toBeCalledWith(fileName, data);
+});
+
+
